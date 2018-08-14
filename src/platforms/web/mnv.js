@@ -1,6 +1,8 @@
 // src/main.js
 
-export default () => {
-	console.log('version：__VERSION__');
-	console.log('ss');
-};
+/* @flow */
+function add(x: number, y: number): number {
+	return x + y;
+}
+  
+add(22, 11);
