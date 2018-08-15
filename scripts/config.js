@@ -7,6 +7,7 @@ const alias = require('rollup-plugin-alias');
 const cjs = require('rollup-plugin-commonjs');
 const replace = require('rollup-plugin-replace');
 const node = require('rollup-plugin-node-resolve');
+const flow = require('rollup-plugin-flow');
 
 const version = process.env.VERSION || require('../package.json').version;
 const copyright = new Date().getFullYear() > 2018 ? '2018-' + new Date().getFullYear() : 2018;
@@ -74,6 +75,7 @@ function genConfig(name) {
 			replace({
 				__VERSION__: version
 			}),
+			flow({ pretty: true }),
 			buble(),
 			alias(Object.assign({}, aliases, opts.alias))
 		].concat(opts.plugins || []),
